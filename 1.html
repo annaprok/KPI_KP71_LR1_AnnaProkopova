@@ -10,34 +10,6 @@
 </head>
 
 <body onload="CoolClock.findAndCreateClocks()">
-	<audio>Defines sound content</audio>
-	<bdi>Isolates a part of text that might be formatted in a different direction from other text outside it</bdi>
-	<canvas>Used to draw graphics, on the fly, via scripting (usually JavaScript)</canvas>
-	<datalist>Specifies a list of pre-defined options for input controls	</datalist>
-	<details>Defines additional details that the user can view or hide</details>
-	<dialog>Defines a dialog box or window</dialog> 
-	<embed> Defines a container for an external (non-HTML) application</embed>
-	<figcaption>	Defines a caption for a <figure> element</figcaption>
-	<figure>	Specifies self-contained content</figure>
-	<footer>	Defines a footer for a document or section</footer>
-	<header> Defines a header for a document or section</header>
-	<main> Specifies the main content of a document</main>
-	<mark> Defines marked/highlighted text</mark>
-	<menuitem> Defines a command/menu item that the user can invoke from a popup menu</menuitem>
-	<meter>	Defines a scalar measurement within a known range (a gauge)</meter>
-	<nav> Defines navigation links</nav>
-	<output> Defines the result of a calculation</output>
-	<picture> Defines a container for multiple image resources</picture>
-	<progress> Represents the progress of a task</progress>
-	<section> Defines a section in a document</section>
-	<source> Defines multiple media resources for media elements (<video>video</video> and <audio>audio</audio>)</source>
-	<summary> Defines a visible heading for a <details>details</details> element</summary>
-	<template> Defines a template</template>
-	<time> Defines a date/time</time>
-	<track> Defines text tracks for media elements (<video>video</video> and <audio>audio</audio>)</track>
-	<video> Defines a video or movie</video>
-	<wbr> Defines a possible line-break</wbr>
-	<article>
 <nav>
 <p>News:</p>
 <a href="/html/">Sciense</a> |
@@ -92,16 +64,7 @@
 
 "Каждый раз, когда вы обновляете сайт, сеть генерирует новое изображение лица с нуля. В будущем эта технология будет настолько продвинутой, что ее возможности будут безграничными",– объясняет Ванг.</p>
 <section>Базовая структура алгоритма, обеспечивающая работу сайта, была первоначально была разработана в Nvidia. Позже ее исходные коды были опубликованы, и любой желающий может использовать алгоритмы генерации для своих целей. Несмотря на то, что ИИ обучен генерировать человеческие лица, теоретически StyleGAN может имитировать любой источник. Исследователи уже экспериментируют с другими целями, включая шрифты, граффити и даже персонажей из аниме.</section>
-<script>
-function showContent() {
-  var t = document.querySelector('#mytemplate');
-// Populate the src at runtime.
-t.content.querySelector('sourse').src = '';
 
-var clone = document.importNode(t.content, true);
-document.body.appendChild(clone);
-}
-</script>
  
 
 
@@ -128,6 +91,7 @@ document.body.appendChild(clone);
         document.importNode(content, true));
   }
 </script>
+
 
 
 
@@ -172,6 +136,18 @@ document.body.appendChild(clone);
   <p>Posted by: Prokopova Anna</p>
   <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
 </footer>
+<button onclick="useIt()">Use me</button>
+<div id="container"></div>
+<script>
+  function useIt() {
+    var content = document.querySelector('template').content;
+    // Update something in the template DOM.
+    var span = content.querySelector('span');
+    span.textContent = parseInt(span.textContent) + 1;
+    document.querySelector('#container').appendChild(
+        document.importNode(content, true));
+  }
+</script>
 
 <template>
   <div>Template used: <span>0</span></div>
